@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# shellcheck disable=SC2034
+# Script printing "Best School" to standard output 10 times using while loop but displays "bad luck" pn the 4th iteration and "good luck" on the 8th
 
 i=0
 while [ $i -lt 10 ]

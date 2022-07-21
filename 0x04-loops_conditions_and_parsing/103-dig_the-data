@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# shellcheck disable=SC2034
+# A script that parse a log file and orders the status codes
 
 awk '{print $1 " " $9}' apache-access.log | sort | uniq -c | sort -r

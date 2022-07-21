@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# shellcheck disable=SC2034
+# Script printing "Best School" to standard output 10 times using while loop but prints "Hi" after the 9th iteration
 
 i=0
 while [ $i -lt 10 ]

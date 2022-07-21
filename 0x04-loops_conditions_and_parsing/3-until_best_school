@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# shellcheck disable=SC2034
+# Script printing "Best School" to standard output 10 times using until loop
 
 i=0
 until [ $i -gt 9 ]

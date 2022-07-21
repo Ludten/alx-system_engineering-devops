@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# shellcheck disable=SC2034
+# FizzBuzz with Bash scripting
 
 for i in {1..100}
 do

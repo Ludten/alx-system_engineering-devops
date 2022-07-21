@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# shellcheck disable=SC2034
+# A script that displays the content of the file /etc/passwd and tells a story with it
 
 file="/etc/passwd"
 
