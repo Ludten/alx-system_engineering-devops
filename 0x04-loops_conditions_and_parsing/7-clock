@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 hr=0
 while [ $hr -le 12 ]
 do
