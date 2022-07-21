@@ -1,2 +1,5 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC2034
+
+
 awk '{print $1 " " $9}' apache-access.log
