@@ -39,7 +39,7 @@ int main(void)
 		if (child_pid == 0)
 		{
 			printf("Zombie process created, PID: %u\n", my_pid);
-			exit (0);
+			exit(0);
 		}
 	}
 	infinite_while();
