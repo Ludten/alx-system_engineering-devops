@@ -20,11 +20,11 @@ case "$1" in
 		echo "manage_my_process started"
 		;;
 	stop)
-		kill "$(cat "$pidfile")" && rm "$pidfile"
+		kill -9 "$(cat "$pidfile")" && rm "$pidfile"
 		echo "manage_my_process stopped"
 		;;
 	restart)
-		kill "$(cat "$pidfile")" && rm "$pidfile"
+		kill -9 "$(cat "$pidfile")" && rm "$pidfile"
 		./manage_my_process &
 		pgrep -f ./manage_my_process | tee "$pidfile" > /dev/null
 		echo "manage_my_process restarted"
