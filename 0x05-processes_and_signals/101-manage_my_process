@@ -16,17 +16,17 @@ pidfile="/var/run/my_process.pid"
 case "$1" in
 	start)
 		./manage_my_process &
-		pgrep -f ./manage_my_process | sudo tee "$pidfile" > /dev/null
+		pgrep -f ./manage_my_process | tee "$pidfile" > /dev/null
 		echo "manage_my_process started"
 		;;
 	stop)
-		kill "$(cat "$pidfile")" && sudo rm "$pidfile"
+		kill "$(cat "$pidfile")" && rm "$pidfile"
 		echo "manage_my_process stopped"
 		;;
 	restart)
-		kill "$(cat "$pidfile")" && sudo rm "$pidfile"
+		kill "$(cat "$pidfile")" && rm "$pidfile"
 		./manage_my_process &
-		pgrep -f ./manage_my_process | sudo tee "$pidfile" > /dev/null
+		pgrep -f ./manage_my_process | tee "$pidfile" > /dev/null
 		echo "manage_my_process restarted"
 		;;
 	*)
