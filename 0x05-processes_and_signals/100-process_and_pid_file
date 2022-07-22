@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# A script that displays "To infinity and beyond" indefinitely
+
+pidfile="/var/run/myscript.pid"
+echo $$ | sudo tee "$pidfile" > /dev/null
+
+_int() {
+	echo "Y U no love me?!"
+	sudo rm "$pidfile"
+	exit
+
+}
+
+_term() {
+	echo "I hate the kill command"
+	sudo rm "$pidfile"
+	exit
+}
+
+trap _int SIGINT
+
+trap _term SIGTERM
+
+while 'true'
+do
+	echo "To infinity and beyond"
+	sleep 2
+done

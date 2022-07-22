@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# A script that writes "I am alive!" to "/tmp/my_process" at a 2s interval
+
+while 'true'
+do
+	echo "I am alive!" >> "/tmp/my_process"
+	sleep 2
+done

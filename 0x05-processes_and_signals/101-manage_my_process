@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+### BEGIN INIT INFO
+# Provides:		manage_my_process
+# Required-Start:	$local_fs $remote_fs
+# Required-Stop:	$local_fs $remote_fs
+# Default-Start:	2 3 4 5
+# Default-Stop:		0 1 6
+# Short-Description:	manage_my_process daemon
+# Description:		Manage manage_my_process service
+### END INIT INFO
+
+set -e
+
+pidfile="/var/run/my_process.pid"
+
+case "$1" in
+	start)
+		./manage_my_process &
+		pgrep -f ./manage_my_process | sudo tee "$pidfile" > /dev/null
+		echo "manage_my_process started"
+		;;
+	stop)
+		kill "$(cat "$pidfile")" && sudo rm "$pidfile"
+		echo "manage_my_process stopped"
+		;;
+	restart)
+		kill "$(cat "$pidfile")" && sudo rm "$pidfile"
+		./manage_my_process &
+		pgrep -f ./manage_my_process | sudo tee "$pidfile" > /dev/null
+		echo "manage_my_process restarted"
+		;;
+	*)
+		echo "Usage: manage_my_process {start|stop|restart}"
+		exit 1
+		;;
+esac
+
+exit 0
