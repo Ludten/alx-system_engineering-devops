@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 ### BEGIN INIT INFO
 # Provides:		manage_my_process
 # Required-Start:	$local_fs $remote_fs
