@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# open a listening connection at port 98
+
+nc -l 98
