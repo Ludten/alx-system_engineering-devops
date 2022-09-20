@@ -1,4 +1,9 @@
 # configure an nginx web server
+exec { 'Update apt repository':
+  command => 'apt-get -y update',
+  path    => '/usr/bin:/usr/sbin:/bin'
+}
+
 package { 'nginx':
   ensure  =>  installed,
 }
@@ -6,7 +11,7 @@ package { 'nginx':
 file_line { 'index':
   ensure => 'present',
   path   => '/etc/nginx/sites-available/default',
-  after  => 'listen 80 default_server;',
+  after  => 'server_name _;',
   line   => 'rewrite ^/redirect_me https://www.youtube.com/watch?v=dQw4w9WgXcQ\ permanent;',
 }
 
