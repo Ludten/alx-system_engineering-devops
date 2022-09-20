@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Redirect /redirect_me/ to another page
+sudo ./1-install_nginx_web_server
+new_string="_;\\n\\trewrite\\ ^\/redirect_me\/$ https:\/\/www.youtube.com\/watch?v=dQw4w9WgXcQ\\ permanent;\\n"
+sudo sed -i "s/_;/$new_string/" /etc/nginx/sites-available/default
+sudo service nginx restart
