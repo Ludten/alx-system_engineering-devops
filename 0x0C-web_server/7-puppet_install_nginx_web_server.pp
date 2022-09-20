@@ -8,15 +8,14 @@ package { 'nginx':
   ensure  =>  installed,
 }
 
-file_line { 'index':
-  ensure => 'present',
-  path   => '/etc/nginx/sites-available/default',
-  after  => 'server_name _;',
-  line   => 'rewrite ^/redirect_me https://www.youtube.com/watch?v=dQw4w9WgXcQ\ permanent;',
-}
-
 file { '/var/www/html/index.html':
   content => 'Hello World!',
+}
+
+file_line { 'index':
+  path  => '/etc/nginx/sites-available/default',
+  after => 'server_name _;',
+  line  => 'rewrite ^/redirect_me https://www.youtube.com/watch?v=dQw4w9WgXcQ permanent;',
 }
 
 service { 'nginx':
