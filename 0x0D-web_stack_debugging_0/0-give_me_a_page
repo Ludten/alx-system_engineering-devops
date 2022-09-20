@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# script for debugging web stack apache container
+service apache2 status
+service apache2 start
