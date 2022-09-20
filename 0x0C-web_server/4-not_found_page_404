@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # customise the 404 error message
 sudo ./3-redirection
-echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/custom_404.html > /dev/null
+printf "Ceci n'est pas une page\n\n" | sudo tee /usr/share/nginx/html/custom_404.html > /dev/null
 four_str="_;\\n\\n\\terror_page 404\ \/custom_404.html;\\n\\tlocation\ =\ \/custom_404.html\ {\\n\\t\\troot\ \/usr\/share\/nginx\/html;\\n\\t\\tinternal;\\n\\t}\\n"
 sudo sed -i "s/_;/$four_str/" /etc/nginx/sites-available/default
 sudo service nginx restart
