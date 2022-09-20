@@ -1,11 +1,7 @@
 #!/usr/bin/env bash
 # customise the 404 error message
-sudo apt-get -y update
-sudo apt-get -y install nginx
-echo "Hello World!" | sudo tee /var/www/html/index.html > /dev/null
-new_string="_;\\n\\trewrite\\ ^\/redirect_me\/$ https:\/\/www.youtube.com\/watch?v=dQw4w9WgXcQ\\ permanent;\\n"
-sudo sed -i "s/_;/$new_string/" /etc/nginx/sites-available/default
+sudo ./3-redirection
 echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/custom_404.html > /dev/null
-four_str="server_name\ _;\\n\\n\\terror_page 404\ \/custom_404.html;\\n\\tlocation\ =\ \/custom_404.html\ {\\n\\t\\troot\ \/usr\/share\/nginx\/html;\\n\\t\\tinternal;\\n\\t}\\n"
-sudo sed -i "s//server_name _;/$four_str/" /etc/nginx/sites-available/default
+four_str="_;\\n\\n\\terror_page 404\ \/custom_404.html;\\n\\tlocation\ =\ \/custom_404.html\ {\\n\\t\\troot\ \/usr\/share\/nginx\/html;\\n\\t\\tinternal;\\n\\t}\\n"
+sudo sed -i "s/_;/$four_str/" /etc/nginx/sites-available/default
 sudo service nginx restart
