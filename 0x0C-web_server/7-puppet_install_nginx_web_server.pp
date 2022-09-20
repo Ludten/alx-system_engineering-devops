@@ -1,6 +1,6 @@
 # configure an nginx web server
 package { 'nginx':
-  ensure  =>  latest
+  ensure  =>  installed
 }
 service { 'nginx':
   ensure  =>  running,
@@ -10,7 +10,7 @@ service { 'nginx':
 file { 'index':
   ensure  =>  file,
   path    =>  '/var/www/html/index.html',
-  content =>  'Hello World!'
+  content =>  "Hello World!\n"
 }
 file_line { 'redirect':
   ensure  =>  present,
