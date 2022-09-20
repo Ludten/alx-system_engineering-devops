@@ -5,13 +5,13 @@ package { 'nginx':
 file { 'index':
   ensure  =>  file,
   path    =>  '/var/www/html/index.html',
-  content =>  "Hello World!\n"
+  content =>  'Hello World!'
 }
 file_line { 'redirect':
   ensure =>  present,
   path   =>  '/etc/nginx/sites-available/default',
   line   =>  'rewrite ^/redirect_me$ https://www.youtube.com/watch?v=dQw4w9WgXcQ\ permanent;',
-  after  =>  'server_name _;'
+  after  =>  'listen 80 default_server;'
 }
 service { 'nginx':
   ensure  =>  running,
