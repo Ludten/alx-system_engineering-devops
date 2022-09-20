@@ -10,7 +10,7 @@ service { 'nginx':
 file { 'index':
   ensure  =>  file,
   path    =>  '/var/www/html/index.html',
-  content =>  "Hello World!\n"
+  content =>  "Hello World!"
 }
 file_line { 'redirect':
   ensure =>  present,
@@ -21,7 +21,7 @@ file_line { 'redirect':
 file { 'custom_404':
   ensure  =>  file,
   path    =>  '/usr/share/nginx/html/custom_404.html',
-  content =>  "Ceci n'est pas une page\n"
+  content =>  "Ceci n'est pas une page"
 }
 
 $new_line = "\n\terror_page 404 /custom_404.html;\n\tlocation = /custom_404.html {\n\t\troot /usr/share/nginx/html;\n\t\tinternal;\n\t}"
