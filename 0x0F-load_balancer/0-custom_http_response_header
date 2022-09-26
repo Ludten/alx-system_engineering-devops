@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# A Script that configures a new Ubuntu machine to have a custom Nginx response header
+sudo apt-get -y update
+sudo apt-get -y install nginx
+# echo "Hello World!" | sudo tee /var/www/html/index.html > /dev/null
+add_header="location\ \/\ {\\n\\t\\tadd_header\ X-Served-By\ \$hostname\ always;\\n"
+sudo sed -i "s/location \/ {/$add_header/" /etc/nginx/sites-available/default
+sudo service nginx restart
