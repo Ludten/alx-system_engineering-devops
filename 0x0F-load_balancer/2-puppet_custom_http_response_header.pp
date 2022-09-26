@@ -1,11 +1,11 @@
 # configure an nginx web server
-exec { 'Update apt repository':
-  command => 'apt-get -y update',
-  path    => '/usr/bin:/usr/sbin:/bin'
+exec { 'apt-get-update':
+  command => '/usr/bin/apt-get update',
 }
 
 package { 'nginx':
-  ensure  =>  installed,
+  ensure  => installed,
+  require => Exec['apt-get-update'],
 }
 
 file { '/var/www/html/index.html':
