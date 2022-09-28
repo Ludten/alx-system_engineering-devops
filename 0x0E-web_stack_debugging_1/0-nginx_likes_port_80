@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Debugs a web server running on port 8080 instead of 80
+sudo sed -i "s/8080/80/" /etc/nginx/sites-enabled/default
+service nginx restart
