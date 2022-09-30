@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# A  script that will display information about subdomains
+# A script that will display information about subdomains
 
 func2 () {
 	if [ -z "$1" ]
