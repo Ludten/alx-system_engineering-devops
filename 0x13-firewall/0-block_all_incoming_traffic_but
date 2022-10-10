@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# ufw commands for denying incoming traffic
+sudo ufw default allow outgoing
+sudo ufw default deny incoming
+sudo ufw allow ssh
+sudo ufw allow 80/tcp comment 'accept HTTP'
+sudo ufw allow 443/tcp comment 'accept HTTPS connections'
+echo y | sudo ufw enable
