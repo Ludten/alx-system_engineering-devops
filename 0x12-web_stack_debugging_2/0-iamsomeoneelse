@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# print the effective user ID of the user passed
+su - "$1" -c "whoami"
