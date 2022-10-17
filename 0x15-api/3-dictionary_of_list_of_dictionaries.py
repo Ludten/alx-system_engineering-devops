@@ -25,13 +25,13 @@ if __name__ == "__main__":
         'https://jsonplaceholder.typicode.com/users')
     try:
         body = name.json()
-        jlist = []
         jsdict = {}
         for item in body:
             user_id = item['id']
             r = requests.get(
                 'https://jsonplaceholder.typicode.com/users/{:d}/todos'
                 .format(user_id)).json()
+            jlist = []
             for task in r:
                 jdict = {}
                 jdict['username'] = item['username']
