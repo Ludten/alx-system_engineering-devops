@@ -6,7 +6,7 @@ import requests
 
 def recurse(subreddit, hot_list=[], after=None):
     """
-    Print the titles of the first 10 hot posts listed for the subreddit
+    Return a list of all hot posts listed for the subreddit
     recursively
     """
     url = "https://reddit.com/r/" + subreddit + \
