@@ -26,7 +26,7 @@ def count_words(subreddit, word_list, after=None, worddict={}, ctr=0):
         tposts = tpost.json()['data']['children']
         for toppost in tposts:
             for word in word_list:
-                worddict[word] += toppost['data']['title'].lower().split(
+                worddict[word] += toppost['data']['title'].split(
                 ).count(word.lower())
         aft = tpost.json()['data']['after']
         if aft is not None:
