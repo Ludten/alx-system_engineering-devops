@@ -42,8 +42,6 @@ def count_words(subreddit, word_list, after=None, worddict={}, ctr=0):
                         multidict[k] += val
             newmmultidict = {k: v for k, v in sorted(
                 multidict.items(), key=lambda x: (-x[1], x[0]))}
-            for i, j in newmmultidict.items():
-                if j != 0:
-                    print('{}: {}'.format(i, j))
+            [print("{}: {}".format(k, v)) for k, v in newmmultidict.items()]
             return
     return
