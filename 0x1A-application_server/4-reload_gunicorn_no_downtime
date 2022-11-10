@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 # reload gunicorn
 
-sudo systemctl daemon-reload
-sudo systemctl reload gunicorn.service
+pgrep gunicorn | xargs kill -HUP
