@@ -22,7 +22,6 @@
 	Requirements:
 	- `Nginx` must serve this page both locally and on its public IP on port 80.
 	- `Nginx` should proxy requests to the process listening on port 5000.
-	- Include your `Nginx` config file as `2-app_server-nginx_config`.
 
 	Notes:
 	- In order to test this you’ll have to spin up either your production or development application server (listening on port `5000`)
@@ -34,7 +33,6 @@
 	Requirements:
 	- `Nginx` must serve this page both locally and on its public IP on port `80`.
 	- `Nginx` should proxy requests to the route `/airbnb-dynamic/number_odd_or_even/(any integer)` the process listening on port `5001`.
-	- Include your `Nginx` config file as `3-app_server-nginx_config`.
 
 	Tips:
 	- Check out these articles/docs for clues on how to configure `Nginx`: [Understanding Nginx Server and Location Block Selection Algorithms](https://www.digitalocean.com/community/tutorials/understanding-nginx-server-and-location-block-selection-algorithms#matching-location-blocks), [Understanding Nginx Location Blocks Rewrite Rules](http://blog.pixelastic.com/2013/09/27/understanding-nginx-location-blocks-rewrite-rules/), [Nginx Reverse Proxy](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/#).
@@ -47,4 +45,15 @@
 	- Setup `Nginx` so that the route `/api/` points to a `Gunicorn` instance listening on port `5002`
 	- `Nginx` must serve this page both locally and on its public IP on port `80`
 	- To test your setup you should bind `Gunicorn` to `api/v1/app.py`
-	- Upload your `Nginx` config file as `4-app_server-nginx_config`
+
+* 5-app_server-nginx_config: Let’s serve what you built for [AirBnB clone - Web dynamic](https://alx-intranet.hbtn.io/projects/309) on `web-01`.
+
+	Requirements:
+	- Git clone your `AirBnB_clone_v4`
+	- Your `Gunicorn` instance should serve content from `web_dynamic/2-hbnb.py` on port `5003`
+	- Setup `Nginx` so that the route / points to your `Gunicorn` instance
+	- Setup `Nginx` so that it properly serves the static assets found in `web_dynamic/static/` (this is essential for your page to render properly)
+	- For your website to be fully functional, you will need to reconfigure` web_dynamic/static/scripts/2-hbnb.js` to the correct IP
+	- `Nginx` must serve this page both locally and on its public IP and port `5003`
+	- Make sure to pull up your Developer Tools on your favorite browser to verify that you have no errors
+
