@@ -39,3 +39,12 @@
 	Tips:
 	- Check out these articles/docs for clues on how to configure `Nginx`: [Understanding Nginx Server and Location Block Selection Algorithms](https://www.digitalocean.com/community/tutorials/understanding-nginx-server-and-location-block-selection-algorithms#matching-location-blocks), [Understanding Nginx Location Blocks Rewrite Rules](http://blog.pixelastic.com/2013/09/27/understanding-nginx-location-blocks-rewrite-rules/), [Nginx Reverse Proxy](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/#).
 	- In order to spin up a `Gunicorn` instance as a detached process you can use the terminal multiplexer utility `tmux`. Enter the command `tmux new-session -d 'gunicorn --bind 0.0.0.0:5001 web_flask.6-number_odd_or_even:app'` and if successful you should see no output to the screen. You can verify that the process has been created by running `pgrep gunicorn` to see its PID. Once you’re ready to end the process you can either run `tmux a` to reattach to the processes, or you can run `kill <PID>` to terminate the background process by ID.
+
+* 4-app_server-nginx_config: Let’s serve what you built for [AirBnB clone v3 - RESTful API]() on `web-01`.
+
+	Requirements:
+	- Git clone your `AirBnB_clone_v3`
+	- Setup `Nginx` so that the route `/api/` points to a `Gunicorn` instance listening on port `5002`
+	- `Nginx` must serve this page both locally and on its public IP on port `80`
+	- To test your setup you should bind `Gunicorn` to `api/v1/app.py`
+	- Upload your `Nginx` config file as `4-app_server-nginx_config`
